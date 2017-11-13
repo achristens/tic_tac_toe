@@ -1,3 +1,18 @@
-h1{
-  color: blue;
+.page-title{
+  text-align: center;
+}
+
+table{
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  background-color: #2e2e2e;
+}
+
+td{
+  width: 30%;
+  height: 90%;
+  display: inline-block;
+  background: #dedede;
+  margin: 7px;
 }
