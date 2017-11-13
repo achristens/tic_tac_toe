@@ -10,9 +10,11 @@ table{
 }
 
 td{
-  width: 30%;
-  height: 90%;
+  width: 150px;
+  height: 150px;
   display: inline-block;
   background: #ffffff;
   margin: 7px;
+  font-size: 8em;
+  text-align: center;
 }

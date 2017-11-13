@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var count = 1;
 
   board.addEventListener('click', function(e){
-      if (count % 2 === 0) {
+      if (count % 2 === 0 && e.target.innerText === "") {
         e.target.innerText = "X";
         count ++;
-      } else {
+      } else if (e.target.innerText === ""){
         e.target.innerText = "O";
         count ++;
       }
