@@ -49,10 +49,12 @@ document.addEventListener('DOMContentLoaded', function() {
     var checkChar = function(){
       if (char === 'X'){
         playerOneScore ++;
+        updateStatus();
         resetBoard();
         return "Player One";
       } else if (char === 'O'){
         playerTwoScore ++;
+        updateStatus();
         resetBoard();
         return "Player Two";
       }
@@ -86,7 +88,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  playerScores.innerText = "Current Score: Player One " + playerOneScore + " | Player Two " + playerTwoScore;
+  function updateStatus(){
+    playerScores.innerText = "Current Score: Player One " + playerOneScore + " | Player Two " + playerTwoScore;
+  }
+
   pageTitle.insertBefore(playerScores, description);
 
 });
