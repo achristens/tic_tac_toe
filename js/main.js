@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var cellEight = document.querySelector('#eight');
   var cellNine = document.querySelector('#nine');
   var reset = document.querySelector('#reset');
-
+  var playerOneScore = 0;
+  var playerTwoScore = 0;
   var count  = 1;
   var xCount = 0;
   var oCount = 0;
@@ -38,34 +39,48 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   function checkScore(){
+    var char = "";
+    var checkChar = function(){
+      if (char === 'X'){
+        playerOneScore ++;
+        return "Player One";
+      } else if (char === 'O'){
+        playerTwoScore ++;
+        return "Player Two";
+      }
+    }
     if (cellOne.innerText === cellTwo.innerText && cellOne.innerText === cellThree.innerText && cellOne.innerText !== ""){
       var char = cellOne.innerText;
-      window.alert("The " + char + " player is the winner!")
+      window.alert(checkChar() + " is the winner!")
     } else if (cellOne.innerText === cellFour.innerText && cellOne.innerText === cellSeven.innerText && cellOne.innerText !== ""){
       var char = cellOne.innerText;
-      window.alert("The " + char + " player is the winner!")
+      window.alert(checkChar() + " player is the winner!")
     } else if (cellFour.innerText === cellFive.innerText && cellFour.innerText === cellSix.innerText && cellFour.innerText !== ""){
       var char = cellFour.innerText;
-      window.alert("The " + char + " player is the winner!")
+      window.alert(checkChar() + " player is the winner!")
     } else if (cellSeven.innerText === cellEight.innerText && cellSeven.innerText === cellNine.innerText && cellSeven.innerText !== ""){
       var char = cellSeven.innerText;
-      window.alert("The " + char + " player is the winner!")
+      window.alert(checkChar() + " player is the winner!")
     } else if (cellTwo.innerText === cellFive.innerText && cellTwo.innerText === cellEight.innerText && cellTwo.innerText !== ""){
       var char = cellTwo.innerText;
-      window.alert("The " + char + " player is the winner!")
+      window.alert(checkChar() + " player is the winner!")
     } else if (cellThree.innerText === cellSix.innerText && cellThree.innerText === cellNine.innerText && cellThree.innerText !== ""){
       var char = cellThree.innerText;
-      window.alert("The " + char + " player is the winner!")
+      window.alert(checkChar() + " player is the winner!")
     } else if (cellOne.innerText === cellFive.innerText && cellOne.innerText === cellNine.innerText && cellOne.innerText !== ""){
       var char = cellOne.innerText;
-      window.alert("The " + char + " player is the winner!")
+      window.alert(checkChar() + " player is the winner!")
     } else if (cellThree.innerText === cellFive.innerText && cellThree.innerText === cellSeven.innerText && cellThree.innerText !== ""){
       var char = cellOne.innerText;
-      window.alert("The " + char + " player is the winner!")
+      window.alert(checkChar() + " player is the winner!")
     } else if (oCount + xCount === 9){
       window.alert("It's a draw!");
     }
+    // if (char === 'X'){
+    //   console.log("player 1: " +playerOneScore);
+    // } else if (char === 'O'){
+    //   console.log("player 2: " +playerTwoScore);
+    // }
   }
-
 
 });
