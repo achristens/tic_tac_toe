@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var cellEight = document.querySelector('#eight');
   var cellNine = document.querySelector('#nine');
   var reset = document.querySelector('#reset');
+  var playerScores = document.createElement('h2');
+  var description = document.querySelector('p');
+  var pageTitle = document.querySelector('.page-title');
   var playerOneScore = 0;
   var playerTwoScore = 0;
   var count  = 1;
@@ -32,10 +35,13 @@ document.addEventListener('DOMContentLoaded', function() {
     checkScore();
   });
 
-  reset.addEventListener('click', function(){
+  var resetBoard = function(){
     cells.forEach(function(cell){
       cell.innerText = "";
-    })
+    });
+  }
+  reset.addEventListener('click', function(){
+    resetBoard();
   });
 
   function checkScore(){
@@ -43,9 +49,11 @@ document.addEventListener('DOMContentLoaded', function() {
     var checkChar = function(){
       if (char === 'X'){
         playerOneScore ++;
+        resetBoard();
         return "Player One";
       } else if (char === 'O'){
         playerTwoScore ++;
+        resetBoard();
         return "Player Two";
       }
     }
@@ -76,11 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (oCount + xCount === 9){
       window.alert("It's a draw!");
     }
-    // if (char === 'X'){
-    //   console.log("player 1: " +playerOneScore);
-    // } else if (char === 'O'){
-    //   console.log("player 2: " +playerTwoScore);
-    // }
   }
+
+  playerScores.innerText = "Current Score: Player One " + playerOneScore + " | Player Two " + playerTwoScore;
+  pageTitle.insertBefore(playerScores, description);
 
 });
