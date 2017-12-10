@@ -44,6 +44,11 @@ document.addEventListener('DOMContentLoaded', function() {
     resetBoard();
   });
 
+  function resetCounts(){
+    xCount = 0;
+    oCount = 0;
+  }
+
   function checkScore(){
     var char = "";
     var checkChar = function(){
@@ -51,11 +56,13 @@ document.addEventListener('DOMContentLoaded', function() {
         playerOneScore ++;
         updateStatus();
         resetBoard();
+        resetCounts();
         return "Player One";
       } else if (char === 'O'){
         playerTwoScore ++;
         updateStatus();
         resetBoard();
+        resetCounts();
         return "Player Two";
       }
     }
@@ -85,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
       window.alert(checkChar() + " player is the winner!")
     } else if (oCount + xCount === 9){
       window.alert("It's a draw!");
+      resetCounts();
     }
   }
 
